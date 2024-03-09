@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+</head>
+<body>
+  <h1>Data Entry Form</h1>
+  <form id="dataForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    document.getElementById("dataForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://script.google.com/macros/s/AKfycbwocFlDOMHGcsXgVjexQt3j7pwUthl0dkN3O991Qg6zrvZ560hpgc1uaMbGkp1bpCQH/exec", true);
+      xhr.send(formData);
+      location.reload(); // Reload the page after submission
+    });
+  </script>
+</body>
+</html>
